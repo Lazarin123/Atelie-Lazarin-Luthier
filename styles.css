@@ -8,6 +8,8 @@
     --transition: all 0.3s ease;
 }
 
+
+/* --- RESET E CONFIGURAÇÕES GERAIS --- */
 * { 
     margin: 0; 
     padding: 0; 
@@ -27,8 +29,26 @@ body {
 }
 
 /* --- ESTILOS DE VÍDEO & MEDIA CONTROLS --- */
+video::-webkit-media-controls {
+    display: none !important;
+}
+
 video::-webkit-media-controls-start-playback-button {
     display: none !important;
+    -webkit-appearance: none;
+}
+
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    display:none !important;
+}
+
+video {
+    pointer-events: none; /* Impede que o usuário clique e abra o menu do player */
+    object-fit: cover;
 }
 
 /* --- NAVBAR --- */

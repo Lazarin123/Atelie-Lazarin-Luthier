@@ -31,7 +31,7 @@
 
     <!-- Hero Section -->
     <header class="hero">
-      <video autoplay muted loop playsinline class="hero__video">
+      <video autoplay muted loop playsinline style="pointer-events: none;" class="hero__video">
         <source src="assets/video-site.mp4" type="video/mp4" />
         Seu navegador não suporta vídeos.
       </video>
@@ -85,15 +85,6 @@
           >
         </div>
         <div style="flex: 1; min-width: 300px">
-          <!-- <img
-            src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=2000"
-            alt="Luthier trabalhando"
-            style="
-              width: 100%;
-              border-radius: 10px;
-              border-bottom: 5px solid var(--dourado);
-            "
-          /> -->
 
           <video
             autoplay
@@ -104,6 +95,7 @@
               width: 100%;
               border-radius: 10px;
               border-bottom: 5px solid var(--dourado);
+              pointer-events: none;
               video::-webkit-media-controls-start-playback-button {
                 display: none !important;
               }
