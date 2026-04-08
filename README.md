@@ -64,11 +64,10 @@ Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](L
 
 **Samuel Lazarin** *Engenheiro de Software & Luthier*
 
-* **Startup:** [Vallis Tech](https://github.com/vallis-tech)
-* **LinkedIn:** [linkedin.com/in/samuellazarin](https://linkedin.com/in/seu-perfil)
+* **LinkedIn:** [linkedin.com/in/samuellazarin](https://linkedin.com/in/samuel-lazarin)
 * **Instagram Profissional:** [@lazarin.luthier](https://instagram.com/lazarin.luthier)
 
 ---
 <p align="center">
-  Developed with ❤️ by <b>Vallis Tech</b>
+  Developed with ❤️ by <b>Samuel Lazarin</b>
 </p>
