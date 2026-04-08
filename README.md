@@ -16,11 +16,10 @@ Este site foi desenvolvido para ser a vitrine digital da **Lazarin Luthier**. O 
 
 Para garantir performance e uma manutenção de código limpa, o projeto utiliza:
 
-* **React + Vite**: Para uma interface rápida e reativa.
-* **TypeScript**: Tipagem estática para evitar erros em tempo de execução.
-* **Sass (SCSS)**: Pré-processador para estilos avançados.
+* **HTML**: Para uma interface rápida e reativa.
+* **JavaScript**: Estutura para evitar erros em tempo de execução.
+* **CSS**: Pré-processador para estilos avançados.
 * **Metodologia BEM**: Organização de classes CSS (`block__element--modifier`).
-* **Lucide Icons**: Conjunto de ícones minimalistas.
 
 ---
 
@@ -64,7 +63,7 @@ Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](L
 
 **Samuel Lazarin** *Engenheiro de Software & Luthier*
 
-* **LinkedIn:** [linkedin.com/in/samuellazarin](https://linkedin.com/in/samuel-lazarin)
+* **LinkedIn:** [Vamos Conversar](https://linkedin.com/in/samuel-lazarin)
 * **Instagram Profissional:** [@lazarin.luthier](https://instagram.com/lazarin.luthier)
 
 ---
