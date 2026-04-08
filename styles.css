@@ -7,6 +7,10 @@
     --transition: all 0.3s ease;
 }
 
+video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
 
 body { background-color: var(--branco); color: var(--marinho); }
