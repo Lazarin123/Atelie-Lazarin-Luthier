@@ -8,8 +8,6 @@
     --transition: all 0.3s ease;
 }
 
-
-/* --- RESET E CONFIGURAÇÕES GERAIS --- */
 * { 
     margin: 0; 
     padding: 0; 
@@ -17,44 +15,38 @@
     font-family: 'Montserrat', sans-serif; 
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body { 
     background-color: var(--branco); 
     color: var(--marinho); 
     line-height: 1.6;
     overflow-x: hidden;
+    font-size: 20px; /* Aumento da base de leitura global */
 }
 
-/* --- ESTILOS DE VÍDEO & MEDIA CONTROLS --- */
-video::-webkit-media-controls {
-    display: none !important;
-}
-
+/* --- REMOÇÃO TOTAL DE BOTÕES DE VÍDEO (AGRESSIVO) --- */
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-play-button,
 video::-webkit-media-controls-start-playback-button {
     display: none !important;
-    -webkit-appearance: none;
-}
-
-video::-internal-media-controls-download-button {
-    display:none;
-}
-
-video::-webkit-media-controls-enclosure {
-    display:none !important;
+    -webkit-appearance: none !important;
+    opacity: 0 !important;
 }
 
 video {
-    pointer-events: none; /* Impede que o usuário clique e abra o menu do player */
+    pointer-events: none; /* Bloqueia clique para não aparecer botões nativos */
     object-fit: cover;
+    outline: none;
+    border: none;
 }
 
-/* --- NAVBAR --- */
+/* --- NAVBAR (FONTE EXTRA GRANDE) --- */
 .navbar {
     background: var(--marinho);
-    padding: 1rem 5%;
+    padding: 1.5rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,24 +56,35 @@ video {
     border-bottom: 2px solid var(--dourado);
 }
 
+.logo {
+    font-size: 1rem !important; /* Logo imponente */
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--branco);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links a {
     color: var(--branco);
     text-decoration: none;
-    margin-left: 20px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    margin-left: 35px;
+    font-weight: 800;
+    font-size: 1rem; /* Fonte da Navbar aumentada conforme pedido */
     text-transform: uppercase;
     transition: var(--transition);
+    letter-spacing: 1px;
 }
 
-.nav-links a:hover { 
-    color: var(--dourado); 
-}
+.nav-links a:hover { color: var(--dourado); }
 
 /* --- HERO SECTION --- */
 .hero {
     position: relative;
-    height: 80vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,45 +101,40 @@ video {
     left: 50%;
     min-width: 100%;
     min-height: 100%;
-    width: auto;
-    height: auto;
     z-index: 1;
     transform: translate(-50%, -50%);
-    object-fit: cover;
 }
 
 .hero__overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 17, 40, 0.6);
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 17, 40, 0.7);
     z-index: 2;
 }
 
-.hero__content {
-    position: relative;
-    z-index: 3;
-}
+.hero__content { position: relative; z-index: 3; max-width: 1000px; }
 
 .hero h1 { 
-    font-size: 3.5rem; 
-    letter-spacing: 4px; 
-    margin-bottom: 10px; 
+    font-size: 4.5rem; 
+    font-weight: 900;
+    letter-spacing: 5px; 
+    margin-bottom: 15px; 
+    line-height: 1.1;
 }
 
 .hero p { 
     font-style: italic; 
-    font-size: 1.2rem; 
-    margin-bottom: 30px; 
+    font-size: 2rem; 
+    margin-bottom: 40px; 
+    font-weight: 300;
 }
 
 /* --- BOTÕES --- */
 .btn {
-    padding: 12px 30px;
+    padding: 20px 45px;
     border-radius: 5px;
-    font-weight: bold;
+    font-weight: 800;
+    font-size: 1.2rem;
     text-transform: uppercase;
     cursor: pointer;
     transition: var(--transition);
@@ -144,220 +142,80 @@ video {
     display: inline-block;
     text-decoration: none;
 }
+.btn-primary { background: var(--dourado); color: var(--marinho); }
+.btn-primary:hover { background: var(--branco); transform: scale(1.05); }
 
-.btn-primary { 
-    background: var(--dourado); 
-    color: var(--marinho); 
-}
+.btn-outline { border: 2px solid var(--dourado); color: var(--dourado); background: transparent; }
+.btn-outline:hover { background: var(--dourado); color: var(--marinho); }
 
-.btn-primary:hover { 
-    background: var(--branco); 
-    transform: scale(1.05); 
-}
-
-.btn-outline { 
-    border: 2px solid var(--dourado); 
-    color: var(--dourado); 
-    background: transparent; 
-}
-
-.btn-outline:hover { 
-    background: var(--dourado); 
-    color: var(--marinho); 
-}
-
-/* --- GRIDS E SEÇÕES --- */
-.section-padding { 
-    padding: 80px 10%; 
-    text-align: center; 
-}
-
-h2 {
-    margin-bottom: 40px;
-    font-size: 2rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.work-grid, .cert-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-/* CARDS DE TRABALHO */
-.card {
-    background: var(--marinho);
-    color: var(--branco);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.card img { 
-    width: 100%; 
-    height: 250px; 
-    object-fit: cover; 
-    opacity: 0.7; 
-    transition: var(--transition);
-}
-
-.card:hover { transform: translateY(-10px); }
-.card:hover img { opacity: 1; }
-.card-body { padding: 25px; text-align: left; }
-
-/* CARDS DE CERTIFICADOS */
-.card-cert {
-    transition: var(--transition);
-}
-
-.card-cert img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: var(--transition);
-}
-
-.card-cert:hover img {
-    transform: scale(1.02);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-}
-
-/* --- LOCALIZAÇÃO --- */
-.map-container {
-    width: 100%;
-    height: 400px;
-    border: 3px solid var(--dourado);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-/* --- FOOTER --- */
-.footer {
-    background: var(--marinho);
-    color: var(--branco);
-    padding: 50px 10% 20px;
-    border-top: 5px solid var(--roxo);
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
+/* --- SEÇÃO SOBRE --- */
+#sobre p {
+    font-size: 1.7rem !important; 
+    line-height: 1.8;
     margin-bottom: 30px;
 }
 
-.footer h4 { 
-    color: var(--dourado); 
-    margin-bottom: 20px; 
-    text-transform: uppercase;
+/* --- GRIDS E SEÇÕES --- */
+.section-padding { padding: 100px 10%; text-align: center; }
+h2 { margin-bottom: 50px; font-size: 3rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+
+.work-grid, .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
 }
 
-.social-icons a { 
-    color: var(--branco); 
-    font-size: 1.5rem; 
-    margin-right: 15px; 
-    transition: var(--transition); 
-}
+/* CARDS */
+.card { background: var(--marinho); color: var(--branco); border-radius: 10px; overflow: hidden; transition: var(--transition); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+.card img { width: 100%; height: 300px; object-fit: cover; opacity: 0.8; transition: var(--transition); }
+.card-body { padding: 35px; text-align: left; }
+.card-body h3 { font-size: 2rem; margin-bottom: 15px; }
 
-.social-icons a:hover { 
-    color: var(--roxo); 
-    transform: translateY(-3px);
-}
+/* CERTIFICADOS */
+.card-cert { transition: var(--transition); }
+.card-cert img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.card-cert:hover img { transform: scale(1.02); }
 
-/* --- RESPONSIVIDADE (FOCO EM LEITURA E ACESSIBILIDADE) --- */
+/* LOCALIZAÇÃO */
+.map-container { width: 100%; height: 450px; border: 4px solid var(--dourado); border-radius: 12px; overflow: hidden; }
 
+/* FOOTER */
+.footer { background: var(--marinho); color: var(--branco); padding: 80px 10% 30px; border-top: 5px solid var(--roxo); }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; margin-bottom: 50px; }
+.footer h4 { color: var(--dourado); margin-bottom: 25px; font-size: 1.8rem; text-transform: uppercase; font-weight: 800; }
+.footer p { font-size: 1.4rem; opacity: 0.9; }
+.social-icons a { color: var(--branco); font-size: 2.2rem; margin-right: 20px; transition: var(--transition); }
+.social-icons a:hover { color: var(--dourado); }
+.copyright { text-align: center; opacity: 0.6; font-size: 1.2rem; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+/* --- RESPONSIVIDADE (TEXTOS GIGANTES NO MOBILE) --- */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 1.5rem 5%;
-    }
-
-    .nav-links {
-        margin-top: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .nav-links a {
-        margin-left: 0;
-        font-size: 3rem; /* Texto maior para facilitar toque */
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .hero p {
-        font-size: 2rem;
-        line-height: 1.5;
-    }
-
-    .section-padding {
-        padding: 60px 8%;
-    }
-
-    h2 {
-        font-size: 4rem;
-    }
-
-    p {
-        font-size: 5rem; /* Parágrafos maiores */
-    }
-
-    .cert-grid {
-        grid-template-columns: 1fr;
-        gap: 60px; /* Espaço amplo entre certificados */
-        margin-top: 50px;
-    }
-
-    .work-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .card-body h3 {
-        font-size: 3rem;
-    }
-
-    .footer-content {
+    .navbar { padding: 2.5rem 5% !important; flex-direction: column; }
+    .logo { font-size: 2.5rem !important; margin-bottom: 25px; }
+    .nav-links { flex-direction: column; gap: 20px; width: 100%; }
+    .nav-links a { 
+        font-size: 2.2rem !important; /* Fonte gigante na Navbar mobile */
+        margin-left: 0; 
+        width: 100%;
         text-align: center;
-        font-size: 3rem;
+        padding: 10px 0;
     }
 
-    .social-icons {
-        justify-content: center;
-        display: flex;
-        margin-top: 15px;
-    }
+    .hero h1 { font-size: 4rem !important; }
+    .hero p { font-size: 2.5rem !important; }
+
+    h2 { font-size: 3.8rem !important; }
+    #sobre p { font-size: 2.2rem !important; }
+    
+    .btn { font-size: 2rem !important; padding: 25px; width: 100%; }
+    
+    .footer h4 { font-size: 3rem !important; }
+    .footer p { font-size: 2.2rem !important; }
+    .social-icons a { font-size: 3.5rem; }
 }
 
 @media (max-width: 480px) {
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .hero p {
-        font-size: 30px;
-    }
-
-    .btn {
-        width: 100%;
-        margin-bottom: 15px;
-        padding: 15px 30px;
-        font-size: 2rem;
-    }
-
-    .cert-grid {
-        gap: 80px; 
-    }
-
-    .nav-links a {
-        font-size: 15px;
-    }
+    .hero h1 { font-size: 3.2rem !important; }
+    h2 { font-size: 2.8rem !important; }
 }
